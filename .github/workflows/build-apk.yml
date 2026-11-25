@@ -1,0 +1,47 @@
+name: Build APK
+
+on:
+  workflow_dispatch:        # tombol "Run workflow" manual
+  push:
+    branches: [main, master]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 21
+
+      - name: Install dependency
+        run: npm install
+
+      - name: Buat proyek Android
+        run: npx cap add android
+
+      - name: Buat ikon & splash
+        run: npm run icons
+
+      - name: Kunci layar potret
+        run: sed -i 's/<activity/<activity android:screenOrientation="portrait"/' android/app/src/main/AndroidManifest.xml
+
+      - name: Sinkron isi aplikasi
+        run: npx cap sync android
+
+      - name: Build APK
+        working-directory: android
+        run: |
+          chmod +x gradlew
+          ./gradlew assembleDebug
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: SpinLab-APK
+          path: android/app/build/outputs/apk/debug/app-debug.apk

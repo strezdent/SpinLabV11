@@ -1,0 +1,23 @@
+{
+  "name": "spinlab",
+  "productName": "SpinLab",
+  "version": "1.0.0",
+  "description": "Aplikasi Spin Wheel SpinLab untuk HP (Android) berbasis Capacitor",
+  "private": true,
+  "license": "UNLICENSED",
+  "scripts": {
+    "test": "node test/validate.js",
+    "icons": "capacitor-assets generate --android --assetPath resources",
+    "sync": "cap sync android",
+    "open": "cap open android",
+    "serve": "node serve.js"
+  },
+  "dependencies": {
+    "@capacitor/android": "^7.0.0",
+    "@capacitor/core": "^7.0.0"
+  },
+  "devDependencies": {
+    "@capacitor/assets": "^3.0.5",
+    "@capacitor/cli": "^7.0.0"
+  }
+}

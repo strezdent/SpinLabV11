@@ -1,0 +1,9 @@
+{
+  "appId": "id.spinlab.app",
+  "appName": "SpinLab",
+  "webDir": "www",
+  "backgroundColor": "#dff7f2",
+  "android": {
+    "allowMixedContent": false
+  }
+}

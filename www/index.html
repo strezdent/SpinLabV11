@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <meta name="theme-color" content="#dff7f2">
+  <title>SpinLab</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ============ LATAR BELAKANG (memenuhi seluruh layar) ============ -->
+  <div id="bg" aria-hidden="true">
+    <div class="bokeh b1"></div><div class="bokeh b2"></div><div class="bokeh b3"></div>
+    <div class="bokeh b4"></div><div class="bokeh b5"></div><div class="bokeh b6"></div>
+    <div class="bokeh b7"></div><div class="bokeh b8"></div><div class="bokeh b9"></div>
+
+    <!-- gelombang kanan atas -->
+    <svg class="wave wave-tr" viewBox="0 0 560 760" preserveAspectRatio="xMaxYMin meet">
+      <defs>
+        <linearGradient id="gTR1" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#bff1e8" stop-opacity=".85"/><stop offset="1" stop-color="#7fdcc9" stop-opacity=".9"/>
+        </linearGradient>
+        <linearGradient id="gTR2" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#8be3d2" stop-opacity=".9"/><stop offset="1" stop-color="#3fc9b3" stop-opacity=".95"/>
+        </linearGradient>
+        <linearGradient id="gTR3" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#5fd6c2"/><stop offset="1" stop-color="#1fb7a3"/>
+        </linearGradient>
+      </defs>
+      <path fill="url(#gTR1)" d="M96 0 C40 120 170 150 250 235 C330 320 330 380 410 450 C470 505 520 560 560 590 L560 0 Z"/>
+      <path fill="url(#gTR2)" d="M250 0 C230 70 330 100 385 160 C440 220 440 270 490 320 C520 350 540 370 560 385 L560 0 Z"/>
+      <path fill="url(#gTR3)" opacity=".9" d="M420 0 C415 40 480 70 520 110 C540 130 550 150 560 165 L560 0 Z"/>
+    </svg>
+
+    <!-- gelombang kiri bawah -->
+    <svg class="wave wave-bl" viewBox="0 0 640 560" preserveAspectRatio="xMinYMax meet">
+      <defs>
+        <linearGradient id="gBL1" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#a9ece0" stop-opacity=".8"/><stop offset="1" stop-color="#8ce1d1" stop-opacity=".9"/>
+        </linearGradient>
+        <linearGradient id="gBL2" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#7adccb" stop-opacity=".9"/><stop offset="1" stop-color="#4ccdb9"/>
+        </linearGradient>
+        <linearGradient id="gBL3" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#3fc7b2"/><stop offset="1" stop-color="#16a998"/>
+        </linearGradient>
+      </defs>
+      <path fill="url(#gBL1)" d="M0 10 C90 70 150 120 190 205 C235 305 310 400 420 465 C500 510 570 545 640 560 L0 560 Z"/>
+      <path fill="url(#gBL2)" d="M0 150 C60 200 115 255 145 335 C185 430 270 495 370 530 C440 553 500 560 540 560 L0 560 Z"/>
+      <path fill="url(#gBL3)" d="M0 330 C45 375 90 430 110 495 C120 525 130 545 150 560 L0 560 Z"/>
+    </svg>
+  </div>
+
+  <!-- ============ PANGGUNG POTRET (lebar 1080, tinggi mengikuti layar) ============ -->
+  <div id="stage">
+
+    <!-- ornamen -->
+    <div class="dots dots-l"></div>
+    <div class="dots dots-r"></div>
+    <i class="plus" style="left:90px;top:30%;width:58px;height:58px"></i>
+    <i class="plus" style="left:930px;top:24%;width:44px;height:44px"></i>
+    <i class="plus" style="left:960px;top:62%;width:52px;height:52px"></i>
+    <i class="plus" style="left:70px;top:74%;width:46px;height:46px"></i>
+
+    <!-- A. bilah atas: logo Labkes Sumbar + tombol suara -->
+    <header id="topbar">
+      <div id="brand">
+        <img id="logo" src="assets/logo-labkes.png" alt="" draggable="false">
+        <span id="brand-name">LABKES SUMBAR</span>
+      </div>
+      <button id="btn-sound" class="tool" type="button" title="Suara ON/OFF" aria-label="Suara ON/OFF">
+        <svg viewBox="0 0 48 48" class="ico">
+          <path d="M6 18h8l11-9v30l-11-9H6z" fill="#fff"/>
+          <g class="snd-on" fill="none" stroke="#fff" stroke-width="3.6" stroke-linecap="round">
+            <path d="M31 18c3 3.2 3 8.8 0 12"/><path d="M36.5 12.5c6 6 6 17 0 23"/>
+          </g>
+          <g class="snd-off" fill="none" stroke="#fff" stroke-width="3.6" stroke-linecap="round" style="display:none">
+            <path d="M32 18l10 12M42 18L32 30"/>
+          </g>
+        </svg>
+      </button>
+    </header>
+
+    <!-- B. judul + kapsul -->
+    <div id="heading">
+      <h1 id="title" aria-label="SPINLAB">
+        <span class="t-back" aria-hidden="true">SPINLAB</span>
+        <span class="t-front">SPINLAB</span>
+      </h1>
+      <div id="subtitle"><span>PUTAR &amp; MENANGKAN HADIAH</span></div>
+    </div>
+
+    <!-- C. roda + tombol SPIN -->
+    <main id="main">
+      <div id="wheel-wrap">
+        <canvas id="wheel" width="700" height="700"></canvas>
+        <svg id="pin" viewBox="0 0 90 132" aria-hidden="true">
+          <defs>
+            <linearGradient id="pinFill" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#27d6c8"/><stop offset="1" stop-color="#00A896"/>
+            </linearGradient>
+            <linearGradient id="pinEdge" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#0b8f82"/><stop offset=".6" stop-color="#0b8f82"/><stop offset="1" stop-color="#C4D600"/>
+            </linearGradient>
+            <radialGradient id="pinHole" cx=".5" cy=".4" r=".7">
+              <stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#e4f6f3"/>
+            </radialGradient>
+          </defs>
+          <path d="M45 3 C69 3 87 21 87 45 C87 68 68 92 45 128 C22 92 3 68 3 45 C3 21 21 3 45 3 Z"
+                fill="url(#pinFill)" stroke="url(#pinEdge)" stroke-width="5" stroke-linejoin="round"/>
+          <circle cx="45" cy="45" r="22" fill="url(#pinHole)"/>
+        </svg>
+      </div>
+
+      <div id="spin-row">
+        <div class="deco-set"><div class="deco-line"></div><div class="deco-line long"></div><div class="deco-line"></div></div>
+        <button id="btn-spin" type="button" aria-label="SPIN"><span>SPIN</span></button>
+        <div class="deco-set right"><div class="deco-line"></div><div class="deco-line long"></div><div class="deco-line"></div></div>
+      </div>
+    </main>
+  </div>
+
+  <!-- ============ POPUP HASIL ============ -->
+  <div id="overlay" class="hidden" role="dialog" aria-modal="true" aria-labelledby="result-title">
+    <div id="card" data-result="" data-long="0">
+      <div class="card-ribbon"></div>
+      <div id="result-icon"></div>
+      <div id="result-title">STIKER</div>
+      <div id="result-msg">Selamat! Kamu mendapatkan Stiker!</div>
+      <div class="card-actions">
+        <button id="btn-again" type="button" class="pbtn pbtn-main">SPIN LAGI</button>
+        <button id="btn-close" type="button" class="pbtn pbtn-alt">TUTUP</button>
+      </div>
+    </div>
+  </div>
+
+  <canvas id="confetti" aria-hidden="true"></canvas>
+
+  <script src="wheel-logic.js"></script>
+  <script src="renderer.js"></script>
+</body>
+</html>
